@@ -29,8 +29,8 @@ export class CreateComplimentService {
       throw new Error("User receiver does not exists!");
     }
 
-    const complimentByUserExists = await complimentRepositories.find({
-      where: [{ user_sender }, { message }],
+    const [complimentByUserExists] = await complimentRepositories.find({
+      where: [{ user_sender, message }],
     });
 
     if (complimentByUserExists) {
