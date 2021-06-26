@@ -30,7 +30,7 @@ export class CreateComplimentService {
     }
 
     const [complimentByUserExists] = await complimentRepositories.find({
-      where: [{ user_sender, message }],
+      where: [{ tag_id, user_sender, user_receiver, message }],
     });
 
     if (complimentByUserExists) {
